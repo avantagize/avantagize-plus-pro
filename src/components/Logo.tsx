@@ -5,13 +5,13 @@ export const Logo: React.FC = () => {
     <div className="flex items-center">
       {/* Logo image */}
       <img
-        src="/logo.png"       // Make sure logo.png is in your /public folder
+        src="/logo.png"
         alt="Avantagize Plus"
-        className="h-8 w-auto"
+        className="h-6 w-auto sm:h-8" 
       />
 
       {/* Brand text */}
-      <span className="ml-2 font-semibold text-lg text-gray-900">
+      <span className="ml-2 font-semibold text-base sm:text-lg text-gray-900">
         Avantagize Plus
       </span>
     </div>
