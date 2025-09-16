@@ -16,15 +16,10 @@ export const Header: React.FC = () => {
     <header className="w-full py-3 sm:py-4 px-4 sm:px-6 bg-white shadow-md fixed top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
-        {/* Logo + Text */}
-        <div className="flex items-center space-x-2">
-          <Logo />
-          <span className="font-bold text-xl text-gray-900">
-            Avantagize Plus
-          </span>
-        </div>
+        {/* ✅ Logo only (text already inside Logo.tsx) */}
+        <Logo />
 
-        {/* ✅ Desktop Navigation with aria-label */}
+        {/* Desktop Navigation */}
         <nav
           className="hidden md:flex space-x-4 sm:space-x-6 text-gray-700 font-medium"
           aria-label="Main Navigation"
@@ -41,13 +36,12 @@ export const Header: React.FC = () => {
           <a
             href="#booking"
             className="px-6 py-3 rounded-lg bg-purple-600 text-white font-medium hover:bg-purple-700 transition"
-            aria-label="Book a consultation"
           >
             Book Now
           </a>
         </nav>
 
-        {/* ✅ Mobile Menu Button with aria-expanded */}
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-gray-700"
           onClick={() => setIsOpen(!isOpen)}
@@ -55,7 +49,7 @@ export const Header: React.FC = () => {
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
         >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <Menu className="h-6 w-6" />
         </button>
       </div>
 
@@ -68,7 +62,7 @@ export const Header: React.FC = () => {
         aria-hidden="true"
       />
 
-      {/* ✅ Mobile Slide-in Menu */}
+      {/* Mobile Menu */}
       <div
         id="mobile-menu"
         className={`fixed top-0 left-0 h-full w-64 bg-white/90 backdrop-blur-md shadow-xl transform transition-transform duration-300 z-50 ${
@@ -79,11 +73,7 @@ export const Header: React.FC = () => {
         aria-label="Mobile Menu"
       >
         {/* Logo + Close */}
-        <div
-          className={`flex items-center justify-between px-6 py-4 border-b border-gray-200 transform transition-all duration-500 ${
-            isOpen ? "translate-x-0 opacity-100" : "-translate-x-6 opacity-0"
-          }`}
-        >
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
           <Logo />
           <button
             className="text-gray-700"
@@ -94,7 +84,7 @@ export const Header: React.FC = () => {
           </button>
         </div>
 
-        {/* ✅ Accessible Mobile Navigation */}
+        {/* Mobile Navigation */}
         <nav
           className="flex flex-col py-6 px-6 text-gray-700 font-medium space-y-4"
           aria-label="Mobile Navigation"
@@ -114,7 +104,6 @@ export const Header: React.FC = () => {
             </a>
           ))}
 
-          {/* CTA Button */}
           <a
             href="#booking"
             className={`mt-4 px-6 py-3 rounded-lg bg-purple-600 text-white font-medium text-center hover:bg-purple-700 transition transform duration-300 ${
@@ -123,7 +112,6 @@ export const Header: React.FC = () => {
                 : "-translate-x-4 opacity-0"
             }`}
             onClick={() => setIsOpen(false)}
-            aria-label="Book a consultation"
           >
             Book Now
           </a>
