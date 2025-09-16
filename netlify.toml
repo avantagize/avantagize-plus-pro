@@ -5,9 +5,10 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https://*; script-src 'self' https://assets.calendly.com; style-src 'self' 'unsafe-inline'; frame-src https://calendly.com;"
+    # ✅ Security Headers
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https://*; script-src 'self' https://assets.calendly.com; style-src 'self' 'unsafe-inline'; frame-src https://calendly.com; connect-src 'self';"
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), fullscreen=(self)"
