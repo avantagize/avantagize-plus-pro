@@ -7,7 +7,7 @@ export const Logo: React.FC = () => {
       <img
         src="/logo.png"
         alt="Avantagize Plus"
-        className="h-6 w-auto sm:h-8" 
+        className="h-6 w-auto sm:h-8"
       />
 
       {/* Brand text */}
