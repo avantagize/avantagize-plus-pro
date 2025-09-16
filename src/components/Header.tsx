@@ -41,6 +41,7 @@ export const Header: React.FC = () => {
           <a
             href="#booking"
             className="px-6 py-3 rounded-lg bg-purple-600 text-white font-medium hover:bg-purple-700 transition"
+            aria-label="Book a consultation"
           >
             Book Now
           </a>
@@ -54,7 +55,7 @@ export const Header: React.FC = () => {
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
         >
-          <Menu className="h-6 w-6" />
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
@@ -122,6 +123,7 @@ export const Header: React.FC = () => {
                 : "-translate-x-4 opacity-0"
             }`}
             onClick={() => setIsOpen(false)}
+            aria-label="Book a consultation"
           >
             Book Now
           </a>
