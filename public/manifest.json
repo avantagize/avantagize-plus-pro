@@ -2,19 +2,24 @@
   "name": "Avantagize Plus",
   "short_name": "Avantagize",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#6b21a8",
+  "description": "Avantagize Plus - Helping businesses grow with innovative strategies and creative solutions.",
   "icons": [
     {
       "src": "/logo-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/logo-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
