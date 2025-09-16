@@ -9,9 +9,12 @@ export const Footer: React.FC = () => {
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-0">
           
-          {/* Logo + About */}
+          {/* Logo + Text + About */}
           <div className="flex flex-col items-center md:items-start">
-            <Logo />
+            <div className="flex items-center space-x-2">
+              <Logo />
+              <span className="font-semibold text-lg text-white">Avantagize Plus</span>
+            </div>
             <p className="mt-4 text-sm max-w-sm text-center md:text-left">
               Helping businesses grow with innovative strategies and creative solutions.
             </p>
