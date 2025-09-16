@@ -1,5 +1,5 @@
-const CACHE_NAME = "avantagize-cache-v1";
-const urlsToCache = [
+const CACHE_NAME = "avantagize-cache-v2";
+const STATIC_ASSETS = [
   "/",
   "/index.html",
   "/manifest.json",
@@ -7,25 +7,18 @@ const urlsToCache = [
   "/logo-512x512.png"
 ];
 
-// Install SW and cache files
+// Install SW → Precache static assets
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
+      console.log("📦 Caching static assets");
+      return cache.addAll(STATIC_ASSETS);
     })
   );
+  self.skipWaiting();
 });
 
-// Serve cached content when offline
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
-});
-
-// Update cache when new version available
+// Activate SW → Remove old caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) =>
@@ -35,5 +28,48 @@ self.addEventListener("activate", (event) => {
           .map((name) => caches.delete(name))
       )
     )
+  );
+  self.clients.claim();
+});
+
+// Fetch handler
+self.addEventListener("fetch", (event) => {
+  const request = event.request;
+
+  // Only handle GET requests
+  if (request.method !== "GET") return;
+
+  // Cache-first strategy for static assets
+  if (STATIC_ASSETS.some((asset) => request.url.includes(asset))) {
+    event.respondWith(
+      caches.match(request).then((cachedResponse) => {
+        return (
+          cachedResponse ||
+          fetch(request).then((response) => {
+            return caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, response.clone());
+              return response;
+            });
+          })
+        );
+      })
+    );
+    return;
+  }
+
+  // Network-first for everything else
+  event.respondWith(
+    fetch(request)
+      .then((response) => {
+        // Save to cache for offline use
+        return caches.open(CACHE_NAME).then((cache) => {
+          cache.put(request, response.clone());
+          return response;
+        });
+      })
+      .catch(() => {
+        // Fallback to cache if offline
+        return caches.match(request);
+      })
   );
 });
