@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
     <header className="w-full py-4 px-6 bg-white shadow-md fixed top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
-        {/* Logo + Brand Name */}
+        {/* Logo + Brand */}
         <Logo />
 
         {/* Navigation */}
@@ -17,12 +17,3 @@ export const Header: React.FC = () => {
           <a href="#work" className="hover:text-purple-600">Work</a>
           <a href="#contact" className="hover:text-purple-600">Contact</a>
         </nav>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden text-gray-700">
-          <Menu className="h-6 w-6" />
-        </button>
-      </div>
-    </header>
-  );
-};
