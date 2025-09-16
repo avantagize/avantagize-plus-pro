@@ -13,38 +13,60 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center space-x-2">
               <Logo />
-              <span className="font-semibold text-lg text-white">Avantagize Plus</span>
+              <span className="font-semibold text-lg text-white">
+                Avantagize Plus
+              </span>
             </div>
             <p className="mt-4 text-sm max-w-sm text-center md:text-left">
               Helping businesses grow with innovative strategies and creative solutions.
             </p>
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex flex-col sm:flex-row gap-6 text-center md:text-left">
+          {/* ✅ Navigation Links with aria-label */}
+          <nav
+            aria-label="Footer Navigation"
+            className="flex flex-col sm:flex-row gap-6 text-center md:text-left"
+          >
             <div>
-              <h4 className="font-semibold text-white mb-3">Company</h4>
-              <ul className="space-y-2">
-                <li><a href="#about" className="hover:text-purple-400">About</a></li>
-                <li><a href="#services" className="hover:text-purple-400">Services</a></li>
-                <li><a href="#work" className="hover:text-purple-400">Work</a></li>
+              <h4 id="footer-company" className="font-semibold text-white mb-3">
+                Company
+              </h4>
+              <ul className="space-y-2" aria-labelledby="footer-company">
+                <li>
+                  <a href="#about" className="hover:text-purple-400">About</a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-purple-400">Services</a>
+                </li>
+                <li>
+                  <a href="#work" className="hover:text-purple-400">Work</a>
+                </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-white mb-3">Support</h4>
-              <ul className="space-y-2">
-                <li><a href="#contact" className="hover:text-purple-400">Contact</a></li>
-                <li><a href="#faq" className="hover:text-purple-400">FAQ</a></li>
-                <li><a href="#privacy" className="hover:text-purple-400">Privacy Policy</a></li>
+              <h4 id="footer-support" className="font-semibold text-white mb-3">
+                Support
+              </h4>
+              <ul className="space-y-2" aria-labelledby="footer-support">
+                <li>
+                  <a href="#contact" className="hover:text-purple-400">Contact</a>
+                </li>
+                <li>
+                  <a href="#faq" className="hover:text-purple-400">FAQ</a>
+                </li>
+                <li>
+                  <a href="#privacy" className="hover:text-purple-400">Privacy Policy</a>
+                </li>
               </ul>
             </div>
-          </div>
+          </nav>
 
           {/* CTA */}
           <div className="flex flex-col items-center md:items-end">
             <a
               href="#booking"
               className="px-6 py-3 rounded-lg bg-purple-600 text-white font-medium hover:bg-purple-700 transition"
+              aria-label="Book a consultation now"
             >
               Book Now
             </a>
