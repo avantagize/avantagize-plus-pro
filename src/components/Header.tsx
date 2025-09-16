@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
           ))}
           <a
             href="#booking"
-            className="ml-4 px-4 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition"
+            className="px-6 py-3 rounded-lg bg-purple-600 text-white font-medium hover:bg-purple-700 transition"
           >
             Book Now
           </a>
@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
           </button>
         </div>
 
-        {/* Staggered Nav Links */}
+        {/* Staggered Nav Links + CTA */}
         <nav className="flex flex-col py-6 px-6 text-gray-700 font-medium space-y-4">
           {navLinks.map((link, index) => (
             <a
@@ -94,7 +94,7 @@ export const Header: React.FC = () => {
           {/* CTA Button */}
           <a
             href="#booking"
-            className={`mt-4 px-4 py-2 rounded-lg bg-purple-600 text-white text-center hover:bg-purple-700 transition transform duration-300 ${
+            className={`mt-4 px-6 py-3 rounded-lg bg-purple-600 text-white font-medium text-center hover:bg-purple-700 transition transform duration-300 ${
               isOpen
                 ? "translate-x-0 opacity-100 delay-[500ms]"
                 : "-translate-x-4 opacity-0"
