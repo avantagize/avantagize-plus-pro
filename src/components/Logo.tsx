@@ -6,9 +6,10 @@ export const Logo: React.FC = () => {
       {/* Logo image */}
       <img
         src="/logo.png"
-        alt=""   // ✅ empty alt since aria-label on wrapper announces it
+        alt="" // ✅ decorative image, announced by aria-label instead
         className="h-6 w-auto sm:h-8"
         loading="lazy"
+        decoding="async"
       />
 
       {/* Brand text */}
